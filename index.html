@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	입력<input type="text" id="geoData"><button id="okay">실행</button>
+	<div id="monitor"></div>
+	<script type="text/javascript">
+		okay.onclick = function(){
+			var data = JSON.parse(geoData.value);
+			var text = "";
+			for(var i=0;i<data.length;i++){
+				text += "{<br> content: '&lt;div&gt;" + data[i]["title"] + "&lt;/div&gt;',<br> latlng: new kakao.maps.LatLng(" + data[i]["lat"] +"," + data[i]["lng"] + ")<br>},<br>";
+			}
+			monitor.innerHTML = text;
+		}
+	</script>
+</body>
+</html>
